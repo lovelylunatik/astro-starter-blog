@@ -1,5 +1,17 @@
 ---
+const pageTitle = "About Me";
 
+const identity = {
+	firstName: "Luna",
+	country: "Spain",
+	dogNames: ["Leo", "Loki"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript"];
+
+const happy = true;
+const finished = false;
+const goal = 1;
 ---
 
 <html lang="en">
@@ -8,15 +20,32 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{pageTitle}</title>
+		
 	</head>
 	<body>
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-        <a href="/blog/">Blog</a>
-		<h1>My Astro Site</h1>
-        <h1>Luna Wolff</h1>
-        <h2>The Baddest Bitch</h2>
-        <p>Lives in Madrid. Age 31. 5'9"</p>
+		<a href="/">Home</a>
+		<a href="/about/">About</a>
+		<a href="/blog/">Blog</a>
+		<h1>{pageTitle}</h1>
+		<h2>{identity.firstName} Wolff</h2>
+		<p>
+			Lives in {identity.country}. I have two dogs names {
+				identity.dogNames[0]
+			} and {identity.dogNames[1]}.
+		</p>
+		<p>My skills include {skills[0]}, {skills[1]}, and {skills[2]}.</p>
+
+		{happy && <p>I am happy to be learning Astro!</p>}
+
+		{finished && <p>I finished this tutorial!</p>}
+
+		{
+			goal === 1 ? (
+				<p>My goal is to finish in 1 days.</p>
+			) : (
+				<p>My goal is not 1 days.</p>
+			)
+		}
 	</body>
 </html>
